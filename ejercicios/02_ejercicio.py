@@ -32,7 +32,9 @@ Longitud 9, numero de palabras 2
 frase=("Para resolver el siguiente ejercicio van a tener 20 minutos debes de subir tu branch al git")
 
 contador= 0
+# creo que no existe una definición de diccionario()
 d=dicccionario()
+# existe un error en la siguiente línea
 for d in (len(frase.split()):
 	if letras in frase:
 		contador+=1
@@ -42,6 +44,3 @@ for d in (len(frase.split()):
 		d[letra]=d[letra]+1
 print (contador)
 print(d)
-
-
-   
