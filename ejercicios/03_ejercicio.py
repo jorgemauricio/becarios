@@ -21,3 +21,12 @@ Resultado: 9
 Resultado: 2
 
 """
+
+listanumeros=[7, 23, 478, 8976, 99999, 901298]
+
+suma=0
+for cifra in range (0,len(listanumeros)):
+	suma=suma+ listanumeros[cifra]
+	
+	
+print(suma)
