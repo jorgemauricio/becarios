@@ -24,8 +24,7 @@ Resultado: 2
 listaDeNumeros = [7, 23, 478, 8976, 99999, 901298]
 for i in listaDeNumeros:
 	cont = 0
-	while len(str(i)) <2:
-		for j in str(i):
-			cont = cont + int(j)
+	for j in str(i):
+		cont = cont + int(j)
 
 	print ('Resultado: {}'.format(cont))
