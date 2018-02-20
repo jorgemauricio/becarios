@@ -21,3 +21,26 @@ Resultado: 9
 Resultado: 2
 
 """
+
+
+#ListaDeNumeros = [7, 23, 478, 8976, 99999, 901298]
+
+
+
+lista=[7, 23, 478, 8976, 99999, 901298]
+for i in lista:
+	cont0 = 0
+	cont1 = 0
+	cont2 = 0
+	var = len(str(i))
+	while var 
+	for j in str(i):
+		cont1 = cont1 + int(j)
+		cont0()
+    
+    while len(str(i)) <2:
+    	for j in str(i):
+    		cont = cont + int(j)
+print ('Resultado: {}'.format(cont))
+
+
