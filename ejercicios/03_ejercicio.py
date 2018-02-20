@@ -23,8 +23,15 @@ Resultado: 2
 """
 listaDeNumeros = [7, 23, 478, 8976, 99999, 901298]
 for i in listaDeNumeros:
-	cont = 0
+	cont0 = i
+	cont1 = 0
+	cont2 = 0
+	var = len(str(cont0)) 
+	while var > 1:
+		for j in str(cont0):
+			cont1 = cont1 + int(j)
+		var = len(str(cont1)) 
+		cont0 = cont1
 	for j in str(i):
-		cont = cont + int(j)
-
-	print ('Resultado: {}'.format(cont))
+		cont2 = cont2 + int(j)
+	print ('Resultado: {}'.format(cont2))
