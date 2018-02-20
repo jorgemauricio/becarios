@@ -21,3 +21,18 @@ Resultado: 9
 Resultado: 2
 
 """
+listaDeNumeros = [7, 23, 478, 8976, 99999, 901298]
+
+a = []
+j = 0
+for i in listaDeNumeros:
+	a.append(str(listaDeNumeros[j]))
+	j += 1
+
+for z in a:
+	lon = len(z)
+	if lon >= 2:
+		for i in range(0, lon):
+			pass
+	else:
+		print ('Resultado: {}'.format(int(z)))
