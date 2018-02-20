@@ -32,6 +32,7 @@ for i in listaDeNumeros:
 			cont1 = cont1 + int(j)
 		var = len(str(cont1)) 
 		cont0 = cont1
+		cont1 = 0
 	for j in str(i):
 		cont2 = cont2 + int(j)
 	print ('Resultado: {}'.format(cont2))
