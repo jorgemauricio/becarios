@@ -28,15 +28,3 @@ Longitud 4, numero de palabras 1
 
 
 """
-frase = input ('Inserte una frase: ')
-a = []
-for i in frase.split():
-	a.append(len(i))	
-min, max = min(a), max(a) 
-for i in range (min, max +1):
-	c = 0
-	for j in frase.split():
-		if len(j) == i:	
-			c = c + 1
-	if c != 0:
-		print ('Longitud {}, numero de palabras {}'.format(i,c))
