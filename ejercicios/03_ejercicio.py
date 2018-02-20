@@ -25,7 +25,6 @@ listaDeNumeros = [7, 23, 478, 8976, 99999, 901298]
 for i in listaDeNumeros:
 	cont0 = i
 	cont1 = 0
-	cont2 = 0
 	var = len(str(cont0)) 
 	while var > 1:
 		for j in str(cont0):
@@ -33,6 +32,4 @@ for i in listaDeNumeros:
 		var = len(str(cont1)) 
 		cont0 = cont1
 		cont1 = 0
-	for j in str(i):
-		cont2 = cont2 + int(j)
-	print ('Resultado: {}'.format(cont2))
+	print ('Resultado: {}'.format(cont0))
