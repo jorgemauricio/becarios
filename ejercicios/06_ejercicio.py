@@ -26,9 +26,10 @@ agregarMinutos = 70
 Resultado:
 Fecha Final: 2018-01-01 13:10
 """
-
-ag_min = int(input('Inserte minutos a agregar: '))
 fechaInicial = ['2018-01-01 12:00']
+print(fechaInicial)
+ag_min = int(input('Inserte minutos a agregar: '))
+
 ano, mes, dia = (n for n in fechaInicial[0].split("-"))
 dia, hora = (n for n in dia.split(" "))
 hora, minuto = (n for n in hora.split(":"))
