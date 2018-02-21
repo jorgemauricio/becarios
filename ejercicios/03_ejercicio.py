@@ -22,17 +22,14 @@ Resultado: 2
 
 """
 listaDeNumeros = [7, 23, 478, 8976, 99999, 901298]
-
-a = []
-j = 0
 for i in listaDeNumeros:
-	a.append(str(listaDeNumeros[j]))
-	j += 1
-
-for z in a:
-	lon = len(z)
-	if lon >= 2:
-		for i in range(0, lon):
-			pass
-	else:
-		print ('Resultado: {}'.format(int(z)))
+	con0 = i
+	con1 = 0
+	var = len(str(con0))
+	while var > 1:
+		for j in str(con0):
+			con1 = con1 + int(j)
+		var = len(str(con1))
+		con0 = con1
+		con1 = 0
+	print("Resultado: {}".format(con0))
