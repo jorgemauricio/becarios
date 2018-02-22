@@ -10,7 +10,7 @@
 
 Objetivo:
 De una matrix dada, encontrar el maximo producto que resulte de la multiplicación
-de cinco de sus elementos sin utilizar la función de sort
+de cinco de sus elementos sin utilizar la función de sorted
 
 matrix = [[20,1,20,8,6],[19,0,5,8,10],[9,8,9,0,12],[11,2,13,4,5],[4,3,18,1,3]]
 
