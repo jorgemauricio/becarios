@@ -14,10 +14,11 @@ utilizando el modulo random, el primer jugador que llegue a 100 gana la carrera.
 
 Ej.
 import random
+
 a = random.randint(1,10)
 a: puede ser un valor entre 1 y 10 aleatorio
 
-Para evitar que la simulación se despliegue muy rápido, puedes utilizar el módulo tim
+Para evitar que la simulación se despliegue muy rápido, puedes utilizar el módulo time
 
 import time
 
