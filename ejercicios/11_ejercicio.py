@@ -34,24 +34,36 @@ player2 wins
 
 """
 import random
-p,i, player1, player2 = 0,0,0,0
+import time
+import os
+p=''
+i, player1, player2 = 0,0,0
 while i !=1:
-	if player1 > 100 and player2 > 100:
-		player1 = 0
-		player2 = 0
+	cp1,cp2='',''
 	player1 = player1 + random.randint(1,10)
 	player2 = player2 + random.randint(1,10)
-	if player1 == 100 and player2 < 100:
+	if player1 >= 100 and player2 < 99:
 		i = 1
-		p = 1
-	if player2 == 100 and player1 < 100:
-		i = 1 
-		p = 2
-cp1,cp2='',''
-for x in range(0,player1):
-	cp1 =cp1+'*'
-print('Player1: {} {}'.format(cp1,player1))
-for y in range(0,player2):
-	cp2 =cp2+'*'
+		p = 'Player1'
+	elif player2 >= 100 and player1 < 99:
+		i = 1
+		p = 'Player2'
+	elif player2 >= 100 and player1 >= 100:
+		i = 1
+		if player1 > player2:
+			p = 'Player1'
+		elif player2 > player1:
+			p = 'Player2'
+		elif player1 == player2:
+			p = 'Player1 y Player2'
+	for x in range(0,player1):
+		cp1 =cp1+'*'
+	for y in range(0,player2):
+		cp2 =cp2+'*'
+	print('Player1: {} {}'.format(cp1,player1))	
+	print('Player2: {} {}\n'.format(cp2,player2))
+	time.sleep(1)
+	os.system('cls')
+print('Player1: {} {}'.format(cp1,player1))	
 print('Player2: {} {}\n'.format(cp2,player2))
-print('Player{} wins'.format(p))
+print('{} wins'.format(p))
