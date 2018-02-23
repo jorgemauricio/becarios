@@ -270,11 +270,12 @@ for i in caracteres:
 texto = texto.upper()
 texto = texto.split(' ')
 print ("TOTAL DE PALABRAS: {}\n".format(len(texto)))
-while texto != []:
-	cont1 = texto[0]
-	cont2 = 0
-	for j in texto:
-		if j == cont1:
-			cont2 +=1
-			texto.remove(j)
-	print('Palabra {} se repite {}'.format(cont1,cont2))
+new_text = []
+for j in texto:
+	cont = 0
+	if not j in new_text:
+		for k in texto:
+			if j == k:
+				cont +=1
+		new_text.append(j)
+		print('Palabra {} se repite {}'.format(j,cont))
