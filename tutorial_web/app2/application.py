@@ -11,4 +11,4 @@ def bye():
 
 @app.route('/<string:name>')
 def hello(name):
-    return "Hello, {}".format(name)
+    return "<h1>Hello, {}</h1>".format(name)

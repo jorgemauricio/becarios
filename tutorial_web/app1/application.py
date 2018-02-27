@@ -8,3 +8,7 @@ def index():
 @app.route('/bye')
 def bye():
     return "Bye"
+
+@app.route('/welcome')
+def welcome():
+    return "<h1>Welcome</h1>"
