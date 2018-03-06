@@ -35,7 +35,7 @@ Long < -100.0
 
 y guardalas en un csv en la carpeta de resultados
 
-5) Calcular las Unidades Calor (uc) para cada una de las filas con la formúla
+5) Calcular las Unidades Calor (UC) para cada una de las filas con la formúla
 que se indica en el programa.
 """
 
