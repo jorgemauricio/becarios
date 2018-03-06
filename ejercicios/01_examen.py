@@ -49,10 +49,9 @@ def main():
     data = pd.read_csv('../data/examen_final.csv')
     tmax = np.array(data['Tmax'])
     tmin = np.array(data['Tmin'])
-    #dias(data)
-    #medias(data)
-    medias_filtro(data)
-    #calcularUnidadesCalorBase10(tmax, tmin)
+    dias(data)
+    medias(data)
+    calcularUnidadesCalorBase10(tmax, tmin)
 
 def dias(data):
     for i in range (1,6):
@@ -62,41 +61,28 @@ def dias(data):
         df = df[df['Lat'] < 24.0]
         df = df[df['Long'] > -104.0]
         df = df[df['Long'] < -100.0]
-        df.to_csv('resultados/d{}_filtrado.csv'.format(i))
+        df.to_csv('resultados/d{}_filtro.csv'.format(i))
 
 def medias(data):
-    Rain,Tmax,Tmin,Dia=[],[],[],[]
-    new = pd.DataFrame()
+    Rain1,Rain2,Tmax1,Tmax2,Tmin1,Tmin2,Dia=[],[],[],[],[],[],[]
+    new1, new2 = pd.DataFrame(), pd.DataFrame()
     for i in range (1,6):
         df = data[data['Dia']==i]
-        Rain.append(df['Rain'].mean())
-        Tmax.append(df['Tmax'].mean())
-        Tmin.append(df['Tmin'].mean())
+        Rain1.append(df['Rain'].mean())
+        Tmax1.append(df['Tmax'].mean())
+        Tmin1.append(df['Tmin'].mean())
         Dia.append(i)
-    new['Dia'] = Dia
-    new['Rain'] = Rain
-    new['Tmax'] = Tmax
-    new['Tmin'] = Tmin
-    new.to_csv('resultados/Medias.csv')
-
-def medias_filtro(data):
-    Rain,Tmax,Tmin,Dia=[],[],[],[]
-    new = pd.DataFrame()
-    df = data[data['Lat'] > 21.0]
-    df = df[df['Lat'] < 24.0]
-    df = df[df['Long'] > -104.0]
-    df = df[df['Long'] < -100.0]
-    for i in range (1,6):
-        df1 = df[df['Dia']==i]
-        Rain.append(df1['Rain'].mean())
-        Tmax.append(df1['Tmax'].mean())
-        Tmin.append(df1['Tmin'].mean())
-        Dia.append(i)
-    new['Dia'] = Dia
-    new['Rain'] = Rain
-    new['Tmax'] = Tmax
-    new['Tmin'] = Tmin
-    new.to_csv('resultados/Medias_filtrado.csv')
+        df = df[df['Lat'] > 21.0]
+        df = df[df['Lat'] < 24.0]
+        df = df[df['Long'] > -104.0]
+        df = df[df['Long'] < -100.0]
+        Rain2.append(df['Rain'].mean())
+        Tmax2.append(df['Tmax'].mean())
+        Tmin2.append(df['Tmin'].mean())
+    new1['Dia'], new1['Rain'], new1['Tmax'], new1['Tmin'] = Dia, Rain1, Tmax1, Tmin1
+    new2['Dia'], new2['Rain'], new2['Tmax'], new2['Tmin'] = Dia, Rain2, Tmax2, Tmin2
+    new1.to_csv('resultados/Medias.csv')
+    new2.to_csv('resultados/Medias_filtro.csv')    
 
 def calcularUnidadesCalorBase10(tmax, tmin):
     '''
