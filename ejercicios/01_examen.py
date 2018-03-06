@@ -47,22 +47,17 @@ import numpy as np
 
 def main():
     data = pd.read_csv('../data/examen_final.csv')
-    tmax = data['Tmax']
-    tmin = data['Tmin']
-    '''dias(data)
-    dias_filtro(data)
-    medias(data)
-    medias_filtro(data)'''
-    calcularUnidadesCalorBase10(tmax, tmin)
+    tmax = np.array(data['Tmax'])
+    tmin = np.array(data['Tmin'])
+    #dias(data)
+    #medias(data)
+    medias_filtro(data)
+    #calcularUnidadesCalorBase10(tmax, tmin)
 
-'''def dias(data):
+def dias(data):
     for i in range (1,6):
         df = data[data['Dia']==i]
-        df.to_csv('resultados/d{}.csv'.format(i))
-
-def dias_filtro(data):
-    for i in range (1,6):
-        df = data[data['Dia']==i]   
+        df.to_csv('resultados/d{}.csv'.format(i)) 
         df = df[df['Lat'] > 21.0]
         df = df[df['Lat'] < 24.0]
         df = df[df['Long'] > -104.0]
@@ -87,27 +82,21 @@ def medias(data):
 def medias_filtro(data):
     Rain,Tmax,Tmin,Dia=[],[],[],[]
     new = pd.DataFrame()
+    df = data[data['Lat'] > 21.0]
+    df = df[df['Lat'] < 24.0]
+    df = df[df['Long'] > -104.0]
+    df = df[df['Long'] < -100.0]
     for i in range (1,6):
-        df = data[data['Dia']==i]
-        Rain.append(df['Rain'].mean())
-        Tmax.append(df['Tmax'].mean())
-        Tmin.append(df['Tmin'].mean())
+        df1 = df[df['Dia']==i]
+        Rain.append(df1['Rain'].mean())
+        Tmax.append(df1['Tmax'].mean())
+        Tmin.append(df1['Tmin'].mean())
         Dia.append(i)
     new['Dia'] = Dia
     new['Rain'] = Rain
     new['Tmax'] = Tmax
     new['Tmin'] = Tmin
-    new.to_csv('resultados/Medias_filtrado.csv')'''
-def tmax(tmax):
-    if tmax > 30: 
-        return 30
-    else:
-        return tmax
-def tmax(tmin):
-    if tmin < 10: 
-        return 10
-    else:
-        return tmin
+    new.to_csv('resultados/Medias_filtrado.csv')
 
 def calcularUnidadesCalorBase10(tmax, tmin):
     '''
@@ -125,8 +114,20 @@ def calcularUnidadesCalorBase10(tmax, tmin):
     si tmin < 10 : tmin = 10
     si uc < 0 : uc = 0
     '''
-    tbase = 10
-    
+    x,y,cu=[],[],[]
+    for i in tmax:
+        if i > 30:
+            i = 10
+        x.append(i)
+    for i in tmin:
+        if i < 10:  
+            i = 10
+        y.append(i)
+    for i in range(len(x)):
+        cu.append((x[i]+y[i])/2-10)
+    df = pd.DataFrame(cu)
+    df.rename(columns={0:'Cu'})
+    df.to_csv('resultados/Unidades_de_Calor.csv')
 
 if __name__ == '__main__':
     main()
