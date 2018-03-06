@@ -7,7 +7,7 @@
 # Date: 2018-02-01
 # Version: 1.0
 # No. Examen 2
-# Valor: 10 puntos
+# Valor: 9 puntos
 #######################################
 
 Solucionar los siguientes puntos mediante un script:
