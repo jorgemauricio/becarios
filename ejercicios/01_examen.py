@@ -40,12 +40,65 @@ que se indica en el programa.
 """
 
 # librerias
-import Pandas as pd
+import pandas as pd
 import numpy as np
 
 # función main()
 
 def main():
+    data=pd.read_csv('examen_final.csv')
+    df=data[data['Dia']==1]
+    df.to_csv('resultados/Dia1.csv')
+    df=data[data['Dia']==2]
+    df.to_csv('resultados/Dia2.csv')
+    df=data[data['Dia']==3]
+    df.to_csv('resultados/Dia3.csv')
+    df=data[data['Dia']==4]
+    df.to_csv('resultados/Dia4.csv')
+    df=data[data['Dia']==5]
+    df.to_csv('resultados/Dia5.csv')
+    data=pd.read_csv('examen_final.csv')
+    df=data[data['Lat']>21]
+    df=data[data['Lat']<=24]
+    df=data[data['Long']>=-104]
+    df=data[data['Long']<=-100]
+    df.to_csv('resultados/cot_info_Lat_Log.csv')
+    data=pd.read_csv('examen_final.csv')
+    df=data[data['Rain']==1]
+    df['Rain'].mean()
+    df=data[data['Rain']==2]
+    df['Rain'].mean()
+    df=data[data['Rain']==3]
+    df['Rain'].mean()
+    df=data[data['Rain']==4]
+    df['Rain'].mean()
+    df=data[data['Rain']==5]
+    df['Rain'].mean()
+    df=data[data['Tmax']==1]
+    df['Tmax'].mean()
+    df=data[data['Tmax']==2]
+    df['Tmax'].mean()
+    df=data[data['Tmax']==3]
+    df['Tmax'].mean()
+    df=data[data['Tmax']==4]
+    df['Tmax'].mean()
+    df=data[data['Tmax']==5]
+    df['Tmax'].mean()
+    df=data[data['Tmin']==1]
+    df['Tmin'].mean()
+    df=data[data['Tmin']==2]
+    df['Tmin'].mean()
+    df=data[data['Tmin']==3]
+    df['Tmin'].mean()
+    df=data[data['Tmin']==4]
+    df['Tmin'].mean()
+    df=data[data['Tmin']==5]
+    df['Tmin'].mean()
+    xs = ['Rain','Tmax','Tmin'],
+    xs[1,2,3,4]
+    df.to_csv('resultados/medias.csv')
+
+
 
 
 
