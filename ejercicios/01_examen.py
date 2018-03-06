@@ -38,7 +38,6 @@ y guardalas en un csv en la carpeta de resultados
 5) Calcular las Unidades Calor (uc) para cada una de las filas con la formúla
 que se indica en el programa.
 """
-
 import pandas as pd
 import numpy as np
 
@@ -46,43 +45,38 @@ import numpy as np
 
 def main():
     data = pd.read_csv('../data/examen_final.csv')
-    tmax = np.array(data['Tmax'])
-    tmax = tmax.max()
-    tmin = np.array(data['Tmin'])
-    tmin = tmin.min()
+    df = data
+    lista = []
+    maxt = np.array(data['Tmax'])
+    mint = np.array(data['Tmin'])
 
     for i in range(1, 6):
-        print('Generando el csv del Dia {}'.format(i))
+        print('Generando el csv cuando Dia es igual a {}'.format(i))
         dia = data[data['Dia'] == i]
         dia.to_csv('resultados/Dia{}.csv'.format(i))
-    print("*"*10)
+        print('Generando las medias de la variables del Dia {}'.format(i))
+        dia = dia.mean()
+        dia.to_csv('resultados/Medias(Dia{}).csv'.format(i))
     for i in range(1, 6):
-        print('Generando el csv del Dia {} filtrado'.format(i))
+        print('Generando el csv de fltrado de informacion por Dia {}'.format(i))
         dia = data[data['Dia'] == i]
         dia = dia[dia['Lat'] > 21.0]
         dia = dia[dia['Lat'] < 24.0]
         dia = dia[dia['Long'] > -100.0]
         dia = dia[dia['Long'] > -104.0]
-        dia.to_csv('resultados/Dia{}(filtrado).csv'.format(i))
+        dia.to_csv('resultados/filtrado(Dia{}).csv'.format(i))
+        dia = dia.mean()
+        print('Generando el csv de media del fltrado de informacion por Dia {}'.format(i))
+        dia.to_csv('resultados/MediaFiltrado(Dia{}).csv'.format(i))
     print("*"*10)
-    for i in range(1, 6):
-        print('Generando el csv del Dia {} Media'.format(i))
-        df = data[data['Dia'] == i]
-        df = df.mean()
-        df.to_csv('resultados/Dia{}(Medias).csv'.format(i))
-    print("*"*10)
-    for i in range(1, 6):
-        print('Generando el csv del Dia {} Media filtrado'.format(i))
-        df = data[data['Dia'] == i]
-        df = df[df['Lat'] > 21.0]
-        df = df[df['Lat'] < 24.0]
-        df = df[df['Long'] > -100.0]
-        df = df[df['Long'] > -104.0]
-        df = df.mean()
-        df.to_csv('resultados/Dia{}(MediaFiltrado).csv'.format(i))
-    resul = calcularUnidadesCalorBase10(tmax, tmin)
-    print('#'*10)
-    print('Unidad de calor: ', resul)
+    for i in range(0, len(maxt)):
+        tmax = maxt[i]
+        tmin = mint[i]
+        resul = calcularUnidadesCalorBase10(tmax, tmin)
+        lista.append(resul)
+    df['UnidadCalor'] = lista
+    print('Generando csv calculando las Unidad de Calor')
+    df.to_csv('resultados/UnidadesCalor.csv')
 
 def calcularUnidadesCalorBase10(tmax, tmin):
     tbase = 10
