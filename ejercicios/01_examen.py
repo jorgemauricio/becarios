@@ -34,6 +34,9 @@ Long > -104.0
 Long < -100.0
 
 y guardalas en un csv en la carpeta de resultados
+
+5) Calcular las Unidades Calor (uc) para cada una de las filas con la formúla
+que se indica en el programa.
 """
 
 # librerias
@@ -47,5 +50,21 @@ def main():
 
 
 
+def calcularUnidadesCalorBase10(tmax, tmin):
+     """
+    Función que permite el calculo de unidades Calor
+    param: tmax: Temperatura Máxima
+    param: tmin: Temperatura Mínima
+    param: tbase: Temperatura Base = 10
+    Formula uc = tmax + tmin / 2 - tbase
+    Donde:
+    uc =  unidades calor
+    tmax = temperatura máxima
+    tmin = tempratura mínima
+    tbase = 10
+    si tmax > 30 :  tmax = 30
+    si tmin < 10 : tmin = 10
+    si uc < 0 : uc = 0
+    """
 if __name__ == '__main__':
     main()
