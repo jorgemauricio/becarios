@@ -55,7 +55,7 @@ def main():
         dia = data[data['Dia'] == i]
         dia.to_csv('resultados/Dia{}.csv'.format(i))
         print('Generando las medias de la variables del Dia {}'.format(i))
-        dia = dia.mean()
+        dia = dia.mean()[['Rain', 'Tmax', 'Tmin']]
         dia.to_csv('resultados/Medias(Dia{}).csv'.format(i))
     for i in range(1, 6):
         print('Generando el csv del Dia {} filtrado'.format(i))
@@ -82,7 +82,7 @@ def calcularUnidadesCalorBase10(tmax, tmin):
         tmax = 30
     if tmin < 10:
         tmin = 10
-    uc = tmax + tmin / 2 - tbase
+    uc = (tmax + tmin) / 2 - tbase
     if uc < 0:
         uc = 0
     return uc
