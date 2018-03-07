@@ -40,18 +40,29 @@ que se indica en el programa.
 """
 
 # librerias
-import Pandas as pd
+import pandas as pd
 import numpy as np
 
 # función main()
 
 def main():
+    # leer csv
+    data = pd.read_csv("data/examen_final.csv")
 
+    # generar mis csv por día
+    for i in range(1,6):
+        data.loc[data["Dia"] == i].to_csv("resultados/dia{}.csv".format(i))
+        data.loc[data["Dia"] == i].mean()[["Rain", "Tmax", "Tmin"]].to_csv("resultados/dia_m{}.csv".format(i))
 
+        # corte a lat y long
+        data.loc[(data["Dia"] == i) & (data["Lat"] > 21) & (data["Lat"] < 24) & (data["Long"] > -104) & (data["Long"] < -100)].to_csv("resultados/dia_c{}.csv".format(i))
+        data.loc[(data["Dia"] == i) & (data["Lat"] > 21) & (data["Lat"] < 24) & (data["Long"] > -104) & (data["Long"] < -100)].mean()[["Rain", "Tmax", "Tmin"]].to_csv("resultados/dia_c_m{}.csv".format(i))
 
+        data["uc"] = data.apply(lambda x: calcularUnidadesCalorBase10(x["Tmax"], x["Tmin"]), axis=1)
+        data.to_csv("resultados/data_uc.csv")
 
 def calcularUnidadesCalorBase10(tmax, tmin):
-     """
+    """
     Función que permite el calculo de unidades Calor
     param: tmax: Temperatura Máxima
     param: tmin: Temperatura Mínima
@@ -66,5 +77,18 @@ def calcularUnidadesCalorBase10(tmax, tmin):
     si tmin < 10 : tmin = 10
     si uc < 0 : uc = 0
     """
+    if tmax > 30:
+        tmax = 30
+    if tmin < 10:
+        tmin = 10
+
+    uc = 0
+    tbase = 10
+    uc = (tmax + tmin) / 2 - tbase
+
+    if uc < 0:
+        uc = 0
+    return uc
+
 if __name__ == '__main__':
-     main()
+    main()
