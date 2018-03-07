@@ -21,3 +21,15 @@ Resultado: 9
 Resultado: 2
 
 """
+listaDeNumeros = [7, 23, 478, 8976, 99999, 901298]
+for i in listaDeNumeros:
+	contador0 = i
+	contador1 = 0
+	var = len(str(contador0))
+	while var > 1:
+		for j in str(contador0):
+			contador1 = contador1 + int(j)
+		var = len(str(contador1))
+		contador0 = contador1
+		contador1 = 0
+	print("Resultado es: {}".format(contador0))

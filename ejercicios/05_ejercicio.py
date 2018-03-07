@@ -27,3 +27,19 @@ Resultado:
 
 HoLa123@7
 """
+passwords = ['HoLa123@7','12345','2w3E*','2We3345']
+for i in passwords:
+	az, AZ, o9, simbolos = 0, 0, 0, 0
+	if len(i) >= 6  and len(i) <= 12:
+		for j in i:
+			a = ord(j)
+			if (a >= 97 and a <= 122):
+				az = 1
+			elif (a >= 65 and a <= 90):
+				AZ = 1
+			elif (a >= 48 and a <= 57):
+				o9 = 1
+			elif (a == 35 or a == 36 or a == 64):
+				simbolos = 1
+		if ((az + AZ + o9 + simbolos) == 4):
+			print(i)
