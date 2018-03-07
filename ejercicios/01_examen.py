@@ -76,6 +76,9 @@ def main():
     df['UnidadCalor'] = lista
     df.to_csv('resultados/UnidadesCalor.csv')
 
+    #data["uc"] = data.apply(lambda x: calcularUnidadesCalorBase10(x["Tmax"], x["Tmin"]), axis=1)
+    #data.to_csv("resultados/data_uc.csv")
+
 def calcularUnidadesCalorBase10(tmax, tmin):
     tbase = 10
     if tmax > 30:
