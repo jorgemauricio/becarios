@@ -164,7 +164,18 @@ def calcularUnidadesCalorBase10(tmax, tmin):
     si tmin < 10 : tmin = 10
     si uc < 0 : uc = 0
     """
+    if tmax > 30:
+        tmax = 30
+    if tmin < 10:
+        tmin = 10
 
+    uc = 0
+    tbase = 10
+    uc = (tmax + tmin) / 2 - tbase
+
+    if uc < 0:
+        uc = 0
+    return uc
 
 if __name__ == '__main__':
     main()
