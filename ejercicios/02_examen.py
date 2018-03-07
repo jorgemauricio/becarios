@@ -13,12 +13,12 @@
 Corrigue el siguiente script, recuerda realizar tus commits cada 5 min.
 """
 import random
-a = random.randint(1,12)
-b = random.randint(1,12)
 for i in range(0, 10):
-  print("What is {} x {}? ".format(a,b))
-  answer = input(question)
-  if answer == a*b:
-    print ("Well done!")
-  else:
-    print("No.")
+	a = random.randint(1,12)
+	b = random.randint(1,12)
+	question = "What is {} x {} ? ".format(a, b)
+	answer = int(input(question))
+	if (answer == (a*b)):
+		print ("Well done!")
+	else:
+		print("No.")
