@@ -47,44 +47,21 @@ import numpy as np
 
 def main():
     data = pd.read_csv('../data/examen_final.csv')
-    tmax = np.array(data['Tmax'])
-    tmin = np.array(data['Tmin'])
-    dias(data)
-    medias(data)
-    calcularUnidadesCalorBase10(tmax, tmin)
-
-def dias(data):
     for i in range (1,6):
-        df = data[data['Dia']==i]
-        df.to_csv('resultados/d{}.csv'.format(i)) 
-        df = df[df['Lat'] > 21.0]
+        data[data['Dia']==i].to_csv('resultados/d{}.csv'.format(i))
+        data[data['Dia']==i].mean()[['Rain','Tmax','Tmin']].to_csv('resultados/d{}.csv'.format(i)) 
+        data[data['Dia']==i] & (data['Lat'] > 21.0) & (df['Lat'] < 24.0) & (df['Long'] > -104.0) & (df['Long'] < -100.0).to_csv('resultados/d{}.csv'.format(i))
+        data[data['Dia']==i] & (data['Lat'] > 21.0) & (df['Lat'] < 24.0) & (df['Long'] > -104.0) & (df['Long'] < -100.0).mean()[['Rain','Tmax','Tmin']].to_csv('resultados/d{}.csv'.format(i))
+        df = data[data['Lat'] > 21.0]
         df = df[df['Lat'] < 24.0]
         df = df[df['Long'] > -104.0]
         df = df[df['Long'] < -100.0]
         df.to_csv('resultados/d{}_filtro.csv'.format(i))
+    tmax = np.array(data['Tmax'])
+    tmin = np.array(data['Tmin'])
+    calcularUnidadesCalorBase10(tmax, tmin)
 
-def medias(data):
-    Rain1,Rain2,Tmax1,Tmax2,Tmin1,Tmin2,Dia=[],[],[],[],[],[],[]
-    new1, new2 = pd.DataFrame(), pd.DataFrame()
-    for i in range (1,6):
-        df = data[data['Dia']==i]
-        Rain1.append(df['Rain'].mean())
-        Tmax1.append(df['Tmax'].mean())
-        Tmin1.append(df['Tmin'].mean())
-        Dia.append(i)
-        df = df[df['Lat'] > 21.0]
-        df = df[df['Lat'] < 24.0]
-        df = df[df['Long'] > -104.0]
-        df = df[df['Long'] < -100.0]
-        Rain2.append(df['Rain'].mean())
-        Tmax2.append(df['Tmax'].mean())
-        Tmin2.append(df['Tmin'].mean())
-    new1['Dia'], new1['Rain'], new1['Tmax'], new1['Tmin'] = Dia, Rain1, Tmax1, Tmin1
-    new2['Dia'], new2['Rain'], new2['Tmax'], new2['Tmin'] = Dia, Rain2, Tmax2, Tmin2
-    new1.to_csv('resultados/Medias.csv')
-    new2.to_csv('resultados/Medias_filtro.csv')    
-
-def calcularUnidadesCalorBase10(tmax, tmin):
+def calcularUnidadesCalorBase10(tmax, tmin, data):
     '''
     Función que permite el calculo de unidades Calor
     param: tmax: Temperatura Máxima
@@ -111,9 +88,8 @@ def calcularUnidadesCalorBase10(tmax, tmin):
         y.append(i)
     for i in range(len(x)):
         cu.append((x[i]+y[i])/2-10)
-    df = pd.DataFrame(cu)
-    df.rename(columns={0:'Cu'})
-    df.to_csv('resultados/Unidades_de_Calor.csv')
+    data['Unidades_de_Calor'] = cu
+    data.to_csv('resultados/Unidades_de_Calor.csv')
 
 if __name__ == '__main__':
     main()
