@@ -145,6 +145,9 @@ def main():
     datafr = datafr.mean()
     datafr.to_csv('resultados/LongitudesMedia5.csv')
 
+    data["uc"] = data.apply(lambda x: calcularUnidadesCalorBase10(x["Tmax"], x["Tmin"]), axis=1)
+        data.to_csv("resultados/data_uc.csv")
+
 def calcularUnidadesCalorBase10(tmax, tmin):
      """
     Función que permite el calculo de unidades Calor
