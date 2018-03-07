@@ -146,29 +146,13 @@ def main():
     datafr.to_csv('resultados/LongitudesMedia5.csv')
 
     data["uc"] = data.apply(lambda x: calcularUnidadesCalorBase10(x["Tmax"], x["Tmin"]), axis=1)
-        data.to_csv("resultados/data_uc.csv")
+    data.to_csv("resultados/data_uc.csv")
 
 def calcularUnidadesCalorBase10(tmax, tmin):
-     """
-    Función que permite el calculo de unidades Calor
-    param: tmax: Temperatura Máxima
-    param: tmin: Temperatura Mínima
-    param: tbase: Temperatura Base = 10
-    Formula uc = tmax + tmin / 2 - tbase
-    Donde:
-    uc =  unidades calor
-    tmax = temperatura máxima
-    tmin = tempratura mínima
-    tbase = 10
-    si tmax > 30 :  tmax = 30
-    si tmin < 10 : tmin = 10
-    si uc < 0 : uc = 0
-    """
     if tmax > 30:
         tmax = 30
     if tmin < 10:
         tmin = 10
-
     uc = 0
     tbase = 10
     uc = (tmax + tmin) / 2 - tbase
