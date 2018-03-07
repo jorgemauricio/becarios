@@ -52,7 +52,7 @@ def main():
         data[data['Dia']==i].mean()[['Rain','Tmax','Tmin']].to_csv('resultados/Medias_d{}.csv'.format(i)) 
         data[(data['Dia']==i) & (data['Lat'] > 21.0) & (data['Lat'] < 24.0) & (data['Long'] > -104.0) & (data['Long'] < -100.0)].to_csv('resultados/Medias_d{}.csv'.format(i))
         data[(data['Dia']==i) & (data['Lat'] > 21.0) & (data['Lat'] < 24.0) & (data['Long'] > -104.0) & (data['Long'] < -100.0)].mean()[['Rain','Tmax','Tmin']].to_csv('resultados/Medias_d{}_corte.csv'.format(i))
-    data['Unidades_de_Calor'] = data.apply(lambda x:calcularUnidadesCalorBase10(x['Tmax'],x['Tmin'])axis=1)
+    data['Unidades_de_Calor'] = data.apply(lambda x:calcularUnidadesCalorBase10(x['Tmax'],x['Tmin']), axis=1)
 
 def calcularUnidadesCalorBase10(tmax, tmin):
     '''
