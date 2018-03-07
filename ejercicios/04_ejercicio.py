@@ -26,3 +26,21 @@ Resultado:
 	50
 
 """
+o = 'I'
+D = 0
+while(o != 'S'):
+	op = input("Actividad a realizar D/P/S ")
+	if op == 'D' or op == 'd':
+		D += int(input("Deposito: "))
+	elif op == 'P' or op == 'p':
+		P = int(input("Pago: "))
+		if P > D:
+			print("Error al realizar la transaccion ya que el el pago es mayor al deposito")
+		else:
+			D -= P
+			print("Tu deposito Actual es de {}".format(D))
+	elif op == 'S' or op == 's':
+		print("Tu deposito es de {}".format(D))
+		o = 'S'
+	else:
+		print("Letra no validad Intenta de nuevo")

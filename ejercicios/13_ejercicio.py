@@ -223,3 +223,51 @@ Palabra SUPERIOR se repite 1
 
 
 """
+t="Muy buenas tardes a todas y a todos ustedes. "
+t+="Quiero saludar, con respeto, al Presidente de la Cámara de Diputados y al "
+t+="Presidente de la Cámara de Senadores. "
+t+="A los señores Dirigentes de los partidos políticos en nuestro país. A sus "
+t+="principales fuerzas. "
+t+="De igual forma, saludo con respeto a los señores Gobernadores. A "
+t+="Gobernadores electos. Al Jefe de Gobierno electo del Distrito Federal. Todos "
+t+="ellos con origen en distintas expresiones políticas. "
+t+="Saludo a los señores Coordinadores Parlamentarios de distintas fuerzas "
+t+="políticas que están, hoy, aquí presentes. "
+t+="Con respeto, también, saludo a la representación, en actores políticos "
+t+="distinguidos, de las distintas fuerzas políticas de nuestro país. "
+t+="A todos, les saludo con afecto y reconocimiento por este encuentro, sin duda, "
+t+="inédito, pero que representa un gran paso para impulsar la trasformación de "
+t+="nuestro país. Es el punto de encuentro y de coincidencia que, realmente, "
+t+="aplaudo, celebro, y que sea para el bien de México. "
+t+="México comienza una nueva etapa de su vida democrática. Ha llegado el "
+t+="momento del encuentro y del acuerdo. Ha llegado el momento de dar el "
+t+="siguiente paso en el perfeccionamiento democrático: Transitar del sufragio "
+t+="efectivo al gobierno eficaz. "
+t+="En este propósito, los actores políticos deben, o debemos, caminar juntos. "
+t+="Debemos dialogar para construir consensos. En esta hora decisiva de la vida "
+t+="de la República se requiere que los políticos hagamos de las coincidencias la "
+t+="base para alcanzar los acuerdos esenciales. "
+t+="Se necesita que la pluralidad y la diferencia de visiones, en lugar de ser "
+t+="obstáculo, permitan el ascenso de México, enriquezcan el proyecto de Nación "
+t+="que todos queremos para el Siglo XXI. "
+t+="Como Presidente de la República, estoy plenamente convencido que "
+t+="gobernar en democracia significa estar atento y escuchar a las diversas "
+t+="voces que expresan el sentir de los mexicanos. "
+t+="He señalado, con plena convicción, que seré un Presidente democrático. "
+t+="Esto significa voluntad absoluta para conciliar posiciones. Voluntad para "
+t+="anteponer, invariablemente, el interés superior de la Nación."
+
+t = t.replace(".","")
+t = t.replace(",","")
+t = t.replace(":","")
+t = t.upper()
+t = t.split()
+print ("\tNumero de Palabras: {}".format(len(t)))
+lista, num = [], 0
+for i in t:
+	NumVeces = 0
+	if i not in lista:
+		NumVeces = t.count(i)
+		num += 1
+		lista.append(i)
+		print('{} Palabra {} se repite {}'.format(num, i,NumVeces))

@@ -28,3 +28,16 @@ Longitud 4, numero de palabras 1
 
 
 """
+frase = "Para resolver el siguiente ejercicio van a tener 20 minutos debes de subir tu branch al git"
+print("Resultado")
+a = []
+for i in frase.split():
+	a.append(len(i))
+minl, maxl = min(a), max(a)
+for j in range(minl, maxl+1):
+	c = 0
+	for k in frase.split():
+		if(len(k) == j):
+			c += 1
+	if(c != 0):
+		print("Longitud {}, numero de palabras {}".format(j,c))
