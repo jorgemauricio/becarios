@@ -40,15 +40,110 @@ que se indica en el programa.
 """
 
 # librerias
-import Pandas as pd
+import pandas as pd
 import numpy as np
+
+
 
 # función main()
 
 def main():
+    data = pd.read_csv('examen_final.csv') 
+    data.head()
 
+    datafr = data[data['Dia'] == 1]
+    datafr.to_csv('resultados/Dia1.csv')
+    datafr = data[data['Dia'] == 2]
+    datafr.to_csv('resultados/Dia2.csv')
+    datafr = data[data['Dia'] == 3]
+    datafr.to_csv('resultados/Dia3.csv')
+    datafr = data[data['Dia'] == 4]
+    datafr.to_csv('resultados/Dia4.csv')
+    datafr = data[data['Dia'] == 5]
+    datafr.to_csv('resultados/Dia5.csv')
 
+    datafr = data[data['Dia'] == 1]
+    datafr = datafr[datafr['Lat'] >= 21]
+    datafr = datafr[datafr['Lat'] <= 24]
+    datafr = datafr[datafr['Long'] >= -104.0]
+    datafr = datafr[datafr['Long'] <=-100.0]
+    datafr.to_csv('resultados/Longitudes_y_Latitudes1.csv')
+    datafr = data[data['Dia'] == 2]
+    datafr = datafr[datafr['Lat'] >= 21]
+    datafr = datafr[datafr['Lat'] <= 24]
+    datafr = datafr[datafr['Long'] >= -104.0]
+    datafr = datafr[datafr['Long'] <=-100.0]
+    datafr.to_csv('resultados/Longitudes_y_Latitudes2.csv')
+    datafr = data[data['Dia'] == 3]
+    datafr = datafr[datafr['Lat'] >= 21]
+    datafr = datafr[datafr['Lat'] <= 24]
+    datafr = datafr[datafr['Long'] >= -104.0]
+    datafr = datafr[datafr['Long'] <=-100.0]
+    datafr.to_csv('resultados/Longitudes_y_Latitudes3.csv')
+    datafr = data[data['Dia'] == 4]
+    datafr = datafr[datafr['Lat'] >= 21]
+    datafr = datafr[datafr['Lat'] <= 24]
+    datafr = datafr[datafr['Long'] >= -104.0]
+    datafr = datafr[datafr['Long'] <=-100.0]
+    datafr.to_csv('resultados/Longitudes_y_Latitudes4.csv')
+    datafr = data[data['Dia'] == 5]
+    datafr = datafr[datafr['Lat'] >= 21]
+    datafr = datafr[datafr['Lat'] <= 24]
+    datafr = datafr[datafr['Long'] >= -104.0]
+    datafr = datafr[datafr['Long'] <=-100.0]
+    datafr.to_csv('resultados/Longitudes_y_Latitudes5.csv')
 
+    datafr = data[data['Dia'] == 1]
+    datafr = datafr.mean()
+    datafr.to_csv('resultados/Media1.csv')
+    datafr = data[data['Dia'] == 2]
+    datafr = datafr.mean()
+    datafr.to_csv('resultados/Media2.csv')
+    datafr = data[data['Dia'] == 3]
+    datafr = datafr.mean()
+    datafr.to_csv('resultados/Media3.csv')
+    datafr = data[data['Dia'] == 4]
+    datafr = datafr.mean()
+    datafr.to_csv('resultados/Media4.csv')
+    datafr = data[data['Dia'] == 5]
+    datafr = datafr.mean()
+    datafr.to_csv('resultados/Media5.csv')
+
+    datafr = data[data['Dia'] == 1]
+    datafr = datafr[datafr['Lat'] >= 21]
+    datafr = datafr[datafr['Lat'] <= 24]
+    datafr = datafr[datafr['Long'] >= -104.0]
+    datafr = datafr[datafr['Long'] <=-100.0]
+    datafr = datafr.mean()
+    datafr.to_csv('resultados/LongitudesMedia1.csv')
+    datafr = data[data['Dia'] == 2]
+    datafr = datafr[datafr['Lat'] >= 21]
+    datafr = datafr[datafr['Lat'] <= 24]
+    datafr = datafr[datafr['Long'] >= -104.0]
+    datafr = datafr[datafr['Long'] <=-100.0]
+    datafr = datafr.mean()
+    datafr.to_csv('resultados/LongitudesMedia2.csv')
+    datafr = data[data['Dia'] == 3]
+    datafr = datafr[datafr['Lat'] >= 21]
+    datafr = datafr[datafr['Lat'] <= 24]
+    datafr = datafr[datafr['Long'] >= -104.0]
+    datafr = datafr[datafr['Long'] <=-100.0]
+    datafr = datafr.mean()
+    datafr.to_csv('resultados/LongitudesMedia3.csv')
+    datafr = data[data['Dia'] == 4]
+    datafr = datafr[datafr['Lat'] >= 21]
+    datafr = datafr[datafr['Lat'] <= 24]
+    datafr = datafr[datafr['Long'] >= -104.0]
+    datafr = datafr[datafr['Long'] <=-100.0]
+    datafr = datafr.mean()
+    datafr.to_csv('resultados/LongitudesMedia4.csv')
+    datafr = data[data['Dia'] == 5]
+    datafr = datafr[datafr['Lat'] >= 21]
+    datafr = datafr[datafr['Lat'] <= 24]
+    datafr = datafr[datafr['Long'] >= -104.0]
+    datafr = datafr[datafr['Long'] <=-100.0]
+    datafr = datafr.mean()
+    datafr.to_csv('resultados/LongitudesMedia5.csv')
 
 def calcularUnidadesCalorBase10(tmax, tmin):
      """
@@ -66,5 +161,7 @@ def calcularUnidadesCalorBase10(tmax, tmin):
     si tmin < 10 : tmin = 10
     si uc < 0 : uc = 0
     """
+
+
 if __name__ == '__main__':
-     main()
+    main()
