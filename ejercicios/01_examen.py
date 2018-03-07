@@ -47,15 +47,14 @@ import numpy as np
 
 def main():
     data = pd.read_csv('../data/examen_final.csv')
-    '''for i in range (1,6):
+    for i in range (1,6):
         data[data['Dia']==i].to_csv('resultados/d{}.csv'.format(i))
         data[data['Dia']==i].mean()[['Rain','Tmax','Tmin']].to_csv('resultados/Medias_d{}.csv'.format(i)) 
         data[(data['Dia']==i) & (data['Lat'] > 21.0) & (data['Lat'] < 24.0) & (data['Long'] > -104.0) & (data['Long'] < -100.0)].to_csv('resultados/Medias_d{}.csv'.format(i))
         data[(data['Dia']==i) & (data['Lat'] > 21.0) & (data['Lat'] < 24.0) & (data['Long'] > -104.0) & (data['Long'] < -100.0)].mean()[['Rain','Tmax','Tmin']].to_csv('resultados/Medias_d{}_corte.csv'.format(i))
-    '''
     data['Unidades_de_Calor'] = data.apply(lambda x:calcularUnidadesCalorBase10(x['Tmax'],x['Tmin'])axis=1)
 
-def calcularUnidadesCalorBase10(tmax, tmin, data):
+def calcularUnidadesCalorBase10(tmax, tmin):
     '''
     Función que permite el calculo de unidades Calor
     param: tmax: Temperatura Máxima
