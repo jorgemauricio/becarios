@@ -52,14 +52,7 @@ def main():
         data[data['Dia']==i].mean()[['Rain','Tmax','Tmin']].to_csv('resultados/d{}.csv'.format(i)) 
         data[data['Dia']==i] & (data['Lat'] > 21.0) & (df['Lat'] < 24.0) & (df['Long'] > -104.0) & (df['Long'] < -100.0).to_csv('resultados/d{}.csv'.format(i))
         data[data['Dia']==i] & (data['Lat'] > 21.0) & (df['Lat'] < 24.0) & (df['Long'] > -104.0) & (df['Long'] < -100.0).mean()[['Rain','Tmax','Tmin']].to_csv('resultados/d{}.csv'.format(i))
-        df = data[data['Lat'] > 21.0]
-        df = df[df['Lat'] < 24.0]
-        df = df[df['Long'] > -104.0]
-        df = df[df['Long'] < -100.0]
-        df.to_csv('resultados/d{}_filtro.csv'.format(i))
-    tmax = np.array(data['Tmax'])
-    tmin = np.array(data['Tmin'])
-    calcularUnidadesCalorBase10(tmax, tmin)
+    
 
 def calcularUnidadesCalorBase10(tmax, tmin, data):
     '''
@@ -77,19 +70,12 @@ def calcularUnidadesCalorBase10(tmax, tmin, data):
     si tmin < 10 : tmin = 10
     si uc < 0 : uc = 0
     '''
-    x,y,cu=[],[],[]
-    for i in tmax:
-        if i > 30:
-            i = 10
-        x.append(i)
-    for i in tmin:
-        if i < 10:  
-            i = 10
-        y.append(i)
-    for i in range(len(x)):
-        cu.append((x[i]+y[i])/2-10)
-    data['Unidades_de_Calor'] = cu
-    data.to_csv('resultados/Unidades_de_Calor.csv')
+    cu = 0
+    if tmax > 30:
+        tmax = 10
+    if tmin < 10:  
+        tmin = 10
+    cu = (tmax+tmin)/2-10
 
 if __name__ == '__main__':
     main()
