@@ -13,7 +13,6 @@
 Solucionar los siguientes puntos mediante un script:
 1) Del archivo examen_final.csv genera un archivo csv para cada día, estos csv
 deben de guardarse en la carpeta de resultados
-
 2) De la información que se tiene, genera un corte de información para las columnas
 Lat y Long con los siguientes valores
 
@@ -47,30 +46,16 @@ import numpy as np
 # función main()
 
 def main():
-    data=pd.read_csv('../data/examen_final.csv')
-    dia1=data[data['Dia']==1]
-    dia1.to_csv('resultados/Dia1.csv')
-    dia2=data[data['Dia']==2] 
-    dia.to_csv('resultados/Dia2.csv')
-    dia3=data[data['Dia']==3] 
-    dia.to_csv('resultados/Dia3.csv')  
-    dia4=data[data['Dia']==4] 
-    dia.to_csv('resultados/Dia4.csv')
-    dia5=data[data['Dia']==5] 
-    dia.to_csv('resultados/Dia5.csv')
-    corte_Lat= data[(data['Lat'] > 21.0) & (data['Lat'] < 24.0)]
-    corte_Lat.to_csv('resultados/Latitud.csv')
-    corte_Long= data[(data['Long'] > -104.0) & (data['Long'] < -100.0)]
-    corte_Long.to_csv('resultados/Longitud.csv')
-    media=data[data['Rain']==1]
-
-    
-
-
-
+    data = pd.read_csv('../data/examen_final.csv')
+    for i in range (1,6):
+        data[data['Dia']==i].to_csv('resultados/d{}.csv'.format(i))
+        data[data['Dia']==i].mean()[['Rain','Tmax','Tmin']].to_csv('resultados/Medias_d{}.csv'.format(i)) 
+        data[(data['Dia']==i) & (data['Lat'] > 21.0) & (data['Lat'] < 24.0) & (data['Long'] > -104.0) & (data['Long'] < -100.0)].to_csv('resultados/Medias_d{}.csv'.format(i))
+        data[(data['Dia']==i) & (data['Lat'] > 21.0) & (data['Lat'] < 24.0) & (data['Long'] > -104.0) & (data['Long'] < -100.0)].mean()[['Rain','Tmax','Tmin']].to_csv('resultados/Medias_d{}_corte.csv'.format(i))
+    data['Unidades_de_Calor'] = data.apply(lambda x:calcularUnidadesCalorBase10(x['Tmax'],x['Tmin']), axis=1)
 
 def calcularUnidadesCalorBase10(tmax, tmin):
-     """
+    '''
     Función que permite el calculo de unidades Calor
     param: tmax: Temperatura Máxima
     param: tmin: Temperatura Mínima
@@ -84,9 +69,13 @@ def calcularUnidadesCalorBase10(tmax, tmin):
     si tmax > 30 :  tmax = 30
     si tmin < 10 : tmin = 10
     si uc < 0 : uc = 0
-    """
+    '''
+    cu = 0
+    if tmax > 30:
+        tmax = 10
+    if tmin < 10:  
+        tmin = 10
+    cu = (tmax+tmin)/2-10
+
 if __name__ == '__main__':
-     main()
-
-
-
+    main()
