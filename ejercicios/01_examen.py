@@ -64,8 +64,9 @@ def main():
     df=data[data['Long']<=-100]
     df.to_csv('resultados/cot_info_Lat_Log.csv')
     data=pd.read_csv('examen_final.csv')
-    df=data[data['Rain']==1]
-    df['Rain'].mean()
+    df1=data[data['Rain']==1]
+    df1['Rain'].mean()
+    print(df1)
     df=data[data['Rain']==2]
     df['Rain'].mean()
     df=data[data['Rain']==3]
@@ -94,8 +95,6 @@ def main():
     df['Tmin'].mean()
     df=data[data['Tmin']==5]
     df['Tmin'].mean()
-    xs = ['Rain','Tmax','Tmin'],
-    xs[1,2,3,4]
     df.to_csv('resultados/medias.csv')
 
 
