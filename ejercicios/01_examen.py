@@ -50,13 +50,14 @@ def main():
     data=pd.read_csv('../data/examen_final.csv')
     dia1=data[data['Dia']==1]
     dia1.to_csv('resultados/Dia1.csv')
-    dia2=data[data['Dia']==2] 
+    # de aquí en adelante el código esta mal verificarlo
+    dia2=data[data['Dia']==2]
     dia.to_csv('resultados/Dia2.csv')
-    dia3=data[data['Dia']==3] 
-    dia.to_csv('resultados/Dia3.csv')  
-    dia4=data[data['Dia']==4] 
+    dia3=data[data['Dia']==3]
+    dia.to_csv('resultados/Dia3.csv')
+    dia4=data[data['Dia']==4]
     dia.to_csv('resultados/Dia4.csv')
-    dia5=data[data['Dia']==5] 
+    dia5=data[data['Dia']==5]
     dia.to_csv('resultados/Dia5.csv')
     corte_Lat= data[(data['Lat'] > 21.0) & (data['Lat'] < 24.0)]
     corte_Lat.to_csv('resultados/Latitud.csv')
@@ -64,7 +65,7 @@ def main():
     corte_Long.to_csv('resultados/Longitud.csv')
     media=data[data['Rain']==1]
 
-    
+
 
 
 
@@ -87,6 +88,3 @@ def calcularUnidadesCalorBase10(tmax, tmin):
     """
 if __name__ == '__main__':
      main()
-
-
-
