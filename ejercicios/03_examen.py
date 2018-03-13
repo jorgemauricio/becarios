@@ -23,5 +23,11 @@ Resultado:
 La palabra sOmetEmoS es palíndromo
 """
 
-frase = input("Inserte una palabra")
-for i in 
+frase1 = input("Inserte una palabra")
+frase1 = frase1.lower()
+x = len(frase1)
+frase2 = []
+for i in frase1[x]:
+	frase2.append(x)
+	x=x-1
+print(frase2)
