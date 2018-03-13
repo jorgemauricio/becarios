@@ -37,7 +37,9 @@ for i in matrix:
 						elif a == [4,2] == 18:
 							print("El numero es: ".format(a))
 	else:
-		print("No se encontro el valor")
+		print("No se encontro el valor".format(a))
+
+
 
 
 
