@@ -22,5 +22,10 @@ palabra = sOmetEmoS
 Resultado:
 La palabra sOmetEmoS es palíndromo
 """
-palabra = sOmetEmoS
-print(palabra.lower())
+palabra = 'sOmetEmoS'
+palabra = palabra.lower()
+lista = []
+for i in palabra:
+	lista.append(i)
+
+print(lista)
