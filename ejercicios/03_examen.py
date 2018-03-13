@@ -22,3 +22,5 @@ palabra = sOmetEmoS
 Resultado:
 La palabra sOmetEmoS es palíndromo
 """
+palabra = sOmetEmoS
+print(palabra.lower())
