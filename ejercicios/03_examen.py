@@ -29,7 +29,13 @@ for i in palabra:
 	lista.append(i)
 
 longitud = len(lista)
-x = 1
-
+x = 0
+palabra2 = ''
 while(x != longitud):
-	palabra2 += lista[x]  
+	palabra2 += lista[-x]
+	x += 1
+
+if palabra == palabra2:
+	print("Las palabras son polindromo")
+else:
+	print("Las palabras no son polindromo")
