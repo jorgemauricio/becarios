@@ -21,3 +21,5 @@ El 7mo día a partir de la fecha es [aaaa-mm-dd] 2016-8-30
 ano = int(input("Ingresa el ano: "))
 mes = int(input("Ingresa el mes: "))
 dia = int(input("Ingresa el dia: "))
+
+print ("El 7mo dia a partir de la fecha es: {}-{}-{}".format(ano,mes, dia+7))
