@@ -29,7 +29,8 @@ for i in palabra:
 	lista.append(i)
 
 longitud = len(lista)
-x = 0
+longitud +=1
+x = 1
 palabra2 = ''
 while(x != longitud):
 	palabra2 += lista[-x]
