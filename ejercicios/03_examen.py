@@ -22,3 +22,6 @@ palabra = sOmetEmoS
 Resultado:
 La palabra sOmetEmoS es palíndromo
 """
+
+frase = input("Inserte una palabra")
+for i in 
