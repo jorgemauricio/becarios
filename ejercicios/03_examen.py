@@ -28,4 +28,8 @@ lista = []
 for i in palabra:
 	lista.append(i)
 
-print(lista)
+longitud = len(lista)
+x = 1
+
+while(x != longitud):
+	palabra2 += lista[x]  
