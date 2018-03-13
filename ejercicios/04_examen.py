@@ -18,3 +18,7 @@ Ingresa el mes [1-12]: 08
 Ingresa el día [1-31]: 23
 El 7mo día a partir de la fecha es [aaaa-mm-dd] 2016-8-30
 """
+
+ano = int(imput('Ingresa el año: '))
+mes = int(input('Ingresa el mes: '))
+dia = int(input('Ingresa el año: '))
