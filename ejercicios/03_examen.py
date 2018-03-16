@@ -28,7 +28,7 @@ pal = palabra.lower()
 temp = pal.replace(' ','')
 
 if temp == temp[::-1]:
-	print('la palabra'   +pal+   ' es palindromo')
+	print('la palabra'  +pal+  ' es palindromo')
 else:
 	print('la palbra ' +pal+ 'no es palindromo')
 
