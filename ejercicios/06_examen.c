@@ -10,7 +10,7 @@ int main()
 
     suma = n1 + n2;
     
-    printf( "\n   La suma es: %d", suma );
+    printf( "\n   La suma de los dos numeros es: %d", suma );
    
     getch(); /* Pausa */
 
