@@ -29,9 +29,8 @@ x = -1
 for i in range(0, len(matrix)):
 	for j in range(0, len(matrix[i])):
 		orden.append(matrix[i][j])
-tam = len(orden)
 for i in range(0, len(orden)):
-	for j in range(0, tam-1):
+	for j in range(0, len(orden)-1):
 		if orden[j] > orden[j+1]:
 			aux = orden[j+1]
 			orden[j+1] = orden[j]
@@ -43,4 +42,4 @@ for i in range(1, 6):
 for i in range(0, len(matrix)):
 	for j in range(0, len(matrix[i])):
 		if matrix[i][j] in maximos:
-			print('Valor {}, posición {},{}'.format(matrix[i][j], i,j))
+			print('Valor {}, posicion {},{}'.format(matrix[i][j], i,j))
