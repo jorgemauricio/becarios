@@ -9,20 +9,20 @@
 # para posteriormente sumarlos e imprimir
 # el resultado
 */
+#include <stdio.h>
+
 int main()
 {
-    int n1, n2, suma;
+    int a, b, suma;
 
     printf( "\n   Introducir el primer numero: " );
-    scanf ( "%d", &n1 );
+    scanf ( "%d", &a );
     printf( "\n   Introducir el segundo numero: " );
-    scanf ( "%d", &n2 );
+    scanf ( "%d", &b );
 
-    suma = n1 + n2;
+    suma = a + b;
     
     printf( "\n   La suma de los dos numeros es: %d", suma );
-   
-    getch(); /* Pausa */
 
     return 0;
 }
