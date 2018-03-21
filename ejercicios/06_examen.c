@@ -19,6 +19,5 @@ int main()
 	printf("Ingresa el segundo numero: ");
 	scanf("%d", &num2);
 	printf("La suma es: %d\n", num1 + num2);
-	system("pause");
 	return 0;
 }
