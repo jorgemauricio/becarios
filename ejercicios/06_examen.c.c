@@ -9,6 +9,8 @@
 # para posteriormente sumarlos e imprimir
 # el resultado
 */
+#include <iostream.h>
+#include <stdlib.h>
 int main()
 {
     int n1, n2;
