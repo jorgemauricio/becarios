@@ -15,6 +15,6 @@ las siguientes acciones:
 
 1. Imprimir la sumatoria de los numeros pares.
 2. Imprimir la sumatoria de los numeros divisibles entre 5
-3. Impirmir el promedio de los numeros divisibles entre 7
+3. Imprimir el promedio de los numeros divisibles entre 7
 4. Imprimir el promedio de los numeros que sean divisibles entre 2, 5, y 7.
 """
