@@ -18,3 +18,9 @@ Sol
 salió
 segundo
 """
+
+frase = "El día de hoy el Sol salió alrededor de las 6 am por segundo día consecutivo"
+
+for i in frase.split():
+    if i[0].upper() == "S":
+        print(i)

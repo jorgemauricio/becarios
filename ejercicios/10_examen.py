@@ -28,3 +28,39 @@ __|__|__
   |  |
 
 """
+
+import random
+
+def main():
+    horizontal_1 = False
+    horizontal_2 = False
+    horizontal_3 = False
+
+    vertical_1 = False
+    vertical_2 = False
+    vertical_3 = False
+
+    diagonal_1 = False
+    diagonal_2 = False
+
+    espacio_1 = 0
+    espacio_2 = 0
+    espacio_3 = 0
+    espacio_4 = 0
+    espacio_5 = 0
+    espacio_6 = 0
+    espacio_7 = 0
+    espacio_8 = 0
+    espacio_9 = 0
+
+    contador = 0
+
+    while validacion():
+
+
+def validacion():
+
+
+
+if __name__ == '__main__':
+    main()

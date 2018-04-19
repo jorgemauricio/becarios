@@ -28,3 +28,14 @@ Longitud 4, numero de palabras 1
 
 
 """
+fs="Para resolver el siguiente ejercicio van a tener 20 minutos debes de subir tu branch al git"
+
+dic=dict()
+for i in fs.split():
+    if str(len(i)) in dic:
+        dic[str(len(i))]+=1
+    else:
+        dic[str(len(i))]=1
+
+for x,y in dic.items():
+    print("lon {}, num p {}".format(x,y))
