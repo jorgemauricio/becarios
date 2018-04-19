@@ -30,6 +30,7 @@ __|__|__
 """
 
 import random
+import time
 
 def main():
     horizontal_1 = False
@@ -53,14 +54,99 @@ def main():
     espacio_8 = 0
     espacio_9 = 0
 
+    array_valores = [1,2,3,4,5,6,7,8,9]
+
+    status = False
+
     contador = 0
 
-    while validacion():
 
 
-def validacion():
+    while status == False:
 
+        a1,a2,a3,a4,a5,a6,a7,a8,a9 = generar_valores(array_valores)
 
+        if a1 + a2 + a3 == 15:
+            horizontal_1 = True
+        if a4 + a5 + a6 == 15:
+            horizontal_1 = True
+        if a7 + a8 + a9 == 15:
+            horizontal_1 = True
+        if a1 + a4 + a7 == 15:
+            vertical_1 = True
+        if a2 + a5 + a8 == 15:
+            vertical_2 = True
+        if a3 + a6 + a9 == 15:
+            vertical_3 = True
+        if a1 + a5 + a9 == 15:
+            diagonal_1 = True
+        if a7 + a5 + a3 == 15:
+            diagonal_2 = True
+
+        contador += 1
+        if horizontal_1 and horizontal_2 and horizontal_3 and vertical_1 and vertical_2 and vertical_3 and diagonal_1 and diagonal_2:
+            status = True
+        imprimir_cuadro(a1,a2,a3,a4,a5,a6,a7,a8,a9)
+        print("iteraciones: ", contador)
+
+    print("Iteraciones: {}".format(count))
+
+def generar_valores(arr):
+
+    rand = random.randint(0, len(arr))
+    print(rand)
+    b1 = arr[rand]
+    del arr[rand]
+
+    rand = random.randint(0, len(arr))
+    print(rand)
+    b2 = arr[rand]
+    del arr[rand]
+
+    rand = random.randint(0, len(arr))
+    print(rand)
+    b3 = arr[rand]
+    del arr[rand]
+
+    rand = random.randint(0, len(arr))
+    print(rand)
+    b4 = arr[rand]
+    del arr[rand]
+
+    rand = random.randint(0, len(arr))
+    print(rand)
+    b5 = arr[rand]
+    del arr[rand]
+
+    rand = random.randint(0, len(arr))
+    print(rand)
+    b6 = arr[rand]
+    del arr[rand]
+
+    rand = random.randint(0, len(arr))
+    print(rand)
+    b7 = arr[rand]
+    del arr[rand]
+
+    rand = random.randint(0, len(arr))
+    print(rand)
+    b8 = arr[rand]
+    del arr[rand]
+
+    b9 = arr[0]
+
+    return [b1,b2,b3,b4,b5,b6,b7,b8,b9]
+
+def validacion(a1,a2,a3,a4,a5,a6,a7,a8,a9):
+    pass
+
+def imprimir_cuadro(a1,a2,a3,a4,a5,a6,a7,a8,a9):
+    print("\n")
+    print("{}|{}|{}".format(a1,a2,a3))
+    print("{}|{}|{}".format(a4,a5,a6))
+    print("{}|{}|{}".format(a7,a8,a9))
+    print("\n")
+    #time.sleep(0.5)
 
 if __name__ == '__main__':
     main()
