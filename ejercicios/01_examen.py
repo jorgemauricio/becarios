@@ -59,6 +59,7 @@ def main():
     df.to_csv('resultados/Dia5.csv')
     data=pd.read_csv('examen_final.csv')
     # a partir de esta parte el código esta mal
+    # no se han corregido los errores
     df=data[data['Lat']>21]
     df=data[data['Lat']<=24]
     df=data[data['Long']>=-104]
