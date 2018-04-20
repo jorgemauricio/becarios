@@ -73,15 +73,16 @@ for i in range((tamano*tamano)-1):
     if columna<0:        
         columna=tamano-1
     #Logica de llenado
+
     if cuadro[fila][columna]==0:
-        cuadro[fila][columna]=num   
+        cuadro[fila][columna]=num 
     elif cuadro[fila][columna]!=0:
         fila=fila+1
         if fila>0:        
             fila=ubifila+1
         columna=ubicolumna
         cuadro[fila][columna]=num
-
+        print (fila, columna)
 #Impresion:
 for n in range(tamano):    
     print (str(cuadro[0:tamano][n]))
