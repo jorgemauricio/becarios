@@ -22,14 +22,23 @@ aaaaccgiiiimnoprrrrtuu
 
 """
 def main():
-     palabra = "parangaricutirimicuaro"
+	alfabeto = "abcdefghijklmnñopqrstuvwxyz"
+	palabra = "parangaricutirimicuaro"
+	orden = ordenar_letras(palabra, alfabeto)
+	print('Palabra = "{}"'.format(orden))
 
-
-def ordenar_letras(word):
+def ordenar_letras(palabra, alfabeto):
     """
     Función que ordena las letras de una palabra
     param: word: palabra a la cual se le van a ordenar sus letras
     """
+    lista = ''
+    for i in alfabeto:
+    	for j in palabra:
+    		if j == i:
+    			lista = lista + j
+    return lista
+    print (lista)
 
 
 if __name__ == '__main__':
