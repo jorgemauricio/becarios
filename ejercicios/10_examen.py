@@ -56,86 +56,82 @@ def main():
 
     array_valores = [1,2,3,4,5,6,7,8,9]
 
-    status = False
+    dic = {"a1":[0, False],
+            "a2":[0, False],
+            "a3":[0, False],
+            "a4":[0, False],
+            "a5":[0, False],
+            "a6":[0, False],
+            "a7":[0, False],
+            "a8":[0, False],
+            "a9":[0, False]}
+
+    status = True
 
     contador = 0
 
+    while status:
+
+        arr = random.sample(array_valores, len(array_valores))
+        arr_validacion = []
+        for k,v in dic.items():
+            if v[1] == False:
+                arr_validacion.append(k)
+
+        for i in arr_validacion:
+            if dic[i][1] == False:
+                
 
 
-    while status == False:
 
-        a1,a2,a3,a4,a5,a6,a7,a8,a9 = generar_valores(array_valores)
-
-        if a1 + a2 + a3 == 15:
+        if dic["a1"][0] + dic["a2"][0] + dic["a3"][0] == 15:
             horizontal_1 = True
-        if a4 + a5 + a6 == 15:
+            dic["a1"][1] = True
+            dic["a2"][1] = True
+            dic["a3"][1] = True
+        if dic["a4"][0] + dic["a5"][0] + dic["a6"][0] == 15:
             horizontal_1 = True
-        if a7 + a8 + a9 == 15:
+            dic["a4"][1] = True
+            dic["a5"][1] = True
+            dic["a6"][1] = True
+        if dic["a7"][0] + dic["a8"][0] + dic["a9"][0] == 15:
             horizontal_1 = True
-        if a1 + a4 + a7 == 15:
+            dic["a7"][1] = True
+            dic["a8"][1] = True
+            dic["a9"][1] = True
+        if dic["a1"][0] + dic["a4"][0] + dic["a7"][0] == 15:
             vertical_1 = True
-        if a2 + a5 + a8 == 15:
+            dic["a1"][1] = True
+            dic["a4"][1] = True
+            dic["a7"][1] = True
+        if dic["a2"][0] + dic["a5"][0] + dic["a8"][0] == 15:
             vertical_2 = True
-        if a3 + a6 + a9 == 15:
+            dic["a2"][1] = True
+            dic["a5"][1] = True
+            dic["a8"][1] = True
+        if dic["a3"][0] + dic["a6"][0] + dic["a9"][0] == 15:
             vertical_3 = True
-        if a1 + a5 + a9 == 15:
+            dic["a3"][1] = True
+            dic["a6"][1] = True
+            dic["a9"][1] = True
+        if dic["a1"][0] + dic["a5"][0] + dic["a9"][0] == 15:
             diagonal_1 = True
-        if a7 + a5 + a3 == 15:
+            dic["a1"][1] = True
+            dic["a5"][1] = True
+            dic["a9"][1] = True
+        if dic["a7"][0] + dic["a5"][0] + dic["a3"][0] == 15:
             diagonal_2 = True
+            dic["a7"][1] = True
+            dic["a5"][1] = True
+            dic["a3"][1] = True
 
         contador += 1
         if horizontal_1 and horizontal_2 and horizontal_3 and vertical_1 and vertical_2 and vertical_3 and diagonal_1 and diagonal_2:
-            status = True
-        imprimir_cuadro(a1,a2,a3,a4,a5,a6,a7,a8,a9)
+            status = False
+        imprimir_cuadro(dic["a1"][0],dic["a2"][0],dic["a3"][0],dic["a4"][0],dic["a5"][0],dic["a6"][0],dic["a7"][0],dic["a8"][0],dic["a9"][0])
         print("iteraciones: ", contador)
 
     print("Iteraciones: {}".format(count))
-
-def generar_valores(arr):
-
-    rand = random.randint(0, len(arr))
-    print(rand)
-    b1 = arr[rand]
-    del arr[rand]
-
-    rand = random.randint(0, len(arr))
-    print(rand)
-    b2 = arr[rand]
-    del arr[rand]
-
-    rand = random.randint(0, len(arr))
-    print(rand)
-    b3 = arr[rand]
-    del arr[rand]
-
-    rand = random.randint(0, len(arr))
-    print(rand)
-    b4 = arr[rand]
-    del arr[rand]
-
-    rand = random.randint(0, len(arr))
-    print(rand)
-    b5 = arr[rand]
-    del arr[rand]
-
-    rand = random.randint(0, len(arr))
-    print(rand)
-    b6 = arr[rand]
-    del arr[rand]
-
-    rand = random.randint(0, len(arr))
-    print(rand)
-    b7 = arr[rand]
-    del arr[rand]
-
-    rand = random.randint(0, len(arr))
-    print(rand)
-    b8 = arr[rand]
-    del arr[rand]
-
-    b9 = arr[0]
-
-    return [b1,b2,b3,b4,b5,b6,b7,b8,b9]
 
 def validacion(a1,a2,a3,a4,a5,a6,a7,a8,a9):
     pass
