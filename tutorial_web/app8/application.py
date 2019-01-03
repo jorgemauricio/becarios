@@ -12,3 +12,7 @@ def index():
         for j in range(1, 11):
             tablas.append("{} x {} = {}".format(i,j,i*j))
     return render_template("index.html", tablas=tablas)
+
+if __name__ == '__main__':
+    app.debug = True
+    app.run(host = '0.0.0.0',port=5005)
